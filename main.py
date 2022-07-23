@@ -67,12 +67,20 @@ def getActivityInput():
         return getActivityInput()
 
 print("What activity level are you:\nsedentary(little to no exercise\nlightly active(exercise 1–3 days/week)\nmoderately active(exercise 3–5 days/week)\nactive(exercise 5–7 days/week)\nvery active(hard exercise 5–7 days/week)")
-activity = getActivityInput()
 
-while str(activity) != "sedentary" and str(activity) != "lightly active" and str(activity) != "moderately active" and \
-str(activity) != "active" and str(activity) != "very active":
+activity_options = [
+    "sedentary",
+    "lightly active",
+    "moderately active",
+    "active",
+    "very active"
+]
+
+activity = getActivityInput()
+while activity not in activity_options:
     print("Enter sedentary, lightly active, moderately active, active, very active")
-    gender = getActivityInput()
+    activity = getActivityInput()
+
 print("Your selected activity level is", activity)
 
 def calcCaloricBurn(bmr, activity):
@@ -110,7 +118,7 @@ sugar = getInput("How much sugar did you eat today?: ")
 print("You ate ", protein, "proteins, ", carbs, "carbs, ", fats, "fats and ", sugar, "sugars today.")
 totalEnergy = (protein * 4) + (carbs * 4) + (fats * 9) + (sugar * 4)
 print("That's ", totalEnergy, "calories in total!")
-print ("Protein should be 10-35% of your calories, yours is", round(float((protein*4)/totalEnergy) * 100, 2), "%")male
+print ("Protein should be 10-35% of your calories, yours is", round(float((protein*4)/totalEnergy) * 100, 2), "%")
 proteinreq = float(weight) * 1.8
 
 print("You should be eating at least", proteinreq, "per day")
